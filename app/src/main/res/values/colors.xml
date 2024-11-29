@@ -12,8 +12,13 @@
 	<color name="teal_700">#FF018786</color>
 	<color name="black">#FF000000</color>
 	<color name="white">#FFFFFFFF</color>
+	<color name="gray">#D8D8D8</color>
+	<color name="yellow">#EDBD00</color>
+
+
 
 	<color name="__bg__splash_screen_color">#000000</color>
 	<color name="rectangle_15_color">#ffffff</color>
 	<color name="ellipse_11_color">#6A7FFF</color>
+	<color name="bgColor">#6D60F8</color>
 </resources>
