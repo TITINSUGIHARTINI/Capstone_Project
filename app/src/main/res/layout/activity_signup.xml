@@ -71,7 +71,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nameTextView"
-            app:startIconDrawable="@drawable/ic_perso"
             tools:alpha="100">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -111,7 +110,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/emailTextView"
-            app:startIconDrawable="@drawable/ic_email"
             tools:alpha="100">
 
         <com.google.android.material.textfield.TextInputEditText
