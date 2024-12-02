@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
-import com.dicoding.matchsense.MainActivity
+import com.dicoding.matchsense.view.main.MainActivity
 import com.dicoding.matchsense.R
 
 class SplashActivity : AppCompatActivity() {
