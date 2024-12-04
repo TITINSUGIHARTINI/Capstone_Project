@@ -6,7 +6,6 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.dicoding.matchsense.R
 import com.dicoding.matchsense.databinding.ActivityMainBinding
 import com.dicoding.matchsense.view.ViewModelFactory
