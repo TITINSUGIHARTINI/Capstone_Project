@@ -1,30 +1,32 @@
-package com.dicoding.matchsense.view.signup
+package com.dicoding.matchsense.view.login
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.dicoding.matchsense.databinding.ActivitySignupBinding
+import com.dicoding.matchsense.data.Result
+import com.dicoding.matchsense.data.pref.UserModel
+import com.dicoding.matchsense.databinding.ActivityLoginBinding
 import com.dicoding.matchsense.view.ViewModelFactory
-import com.dicoding.matchsense.view.login.LoginActivity
+import com.dicoding.matchsense.view.main.MainActivity
+import com.dicoding.matchsense.view.signup.SignupActivity
 
-class SignupActivity : AppCompatActivity() {
-    private lateinit var binding: ActivitySignupBinding
-    private val viewModel by viewModels<SignupViewModel> {
+class LoginActivity : AppCompatActivity() {
+    private val viewModel by viewModels<LoginViewModel> {
         ViewModelFactory.getInstance(this)
     }
+    private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySignupBinding.inflate(layoutInflater)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setupView()
@@ -46,47 +48,52 @@ class SignupActivity : AppCompatActivity() {
     }
 
     private fun setupAction() {
-        binding.signupButton.setOnClickListener {
+        binding.btnSignin.setOnClickListener {
             val email = binding.emailEditText.text.toString()
-            val name = binding.nameEditText.text.toString()
             val password = binding.passwordEditText.text.toString()
-
-            viewModel.signUp(name, email, password).observe(this) { result ->
+            viewModel.login(email, password).observe(this) { result ->
                 when (result) {
-                    is com.dicoding.matchsense.data.Result.Success -> {
+                    is Result.Success -> {
                         binding.progressBar.visibility = View.GONE
                         if (result.data.error == true) {
                             Toast.makeText(
                                 this,
-                                "Register Failed: ${result.data.message}",
+                                "Login Failed: ${result.data.message}",
                                 Toast.LENGTH_SHORT
                             ).show()
                         } else {
-                            Toast.makeText(this, "Register Success", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show()
+                            viewModel.saveSession(
+                                UserModel(email, result.data.loginResult?.token.orEmpty(), true)
+                            )
+                            val intent = Intent(this, MainActivity::class.java)
+                            intent.flags =
+                                Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                            startActivity(intent)
                             finish()
                         }
                     }
 
-                    is com.dicoding.matchsense.data.Result.Error -> {
+                    is Result.Error -> {
                         binding.progressBar.visibility = View.GONE
-                        Toast.makeText(this, "Register Failed: ${result.error}", Toast.LENGTH_SHORT)
+                        Toast.makeText(this, "Login Failed: ${result.error}", Toast.LENGTH_SHORT)
                             .show()
                     }
 
-                    com.dicoding.matchsense.data.Result.Loading -> {
+                    Result.Loading -> {
                         binding.progressBar.visibility = View.VISIBLE
-                        Log.d("SignupActivity", "Loading state triggered")
                     }
                 }
             }
         }
-        binding.tvBtnSignin.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
+        binding.tvBtnSignup.setOnClickListener {
+            startActivity(Intent(this, SignupActivity::class.java))
         }
         binding.btnBack.setOnClickListener {
             finish()
         }
     }
+
 
     private fun playAnimation() {
         ObjectAnimator.ofFloat(binding.imageView, View.TRANSLATION_X, -30f, 30f).apply {
@@ -95,10 +102,6 @@ class SignupActivity : AppCompatActivity() {
             repeatMode = ObjectAnimator.REVERSE
         }.start()
 
-        val nameTextView =
-            ObjectAnimator.ofFloat(binding.nameTextView, View.ALPHA, 1f).setDuration(100)
-        val nameEditTextLayout =
-            ObjectAnimator.ofFloat(binding.nameEditTextLayout, View.ALPHA, 1f).setDuration(100)
         val emailTextView =
             ObjectAnimator.ofFloat(binding.emailTextView, View.ALPHA, 1f).setDuration(100)
         val emailEditTextLayout =
@@ -107,20 +110,18 @@ class SignupActivity : AppCompatActivity() {
             ObjectAnimator.ofFloat(binding.passwordTextView, View.ALPHA, 1f).setDuration(100)
         val passwordEditTextLayout =
             ObjectAnimator.ofFloat(binding.passwordEditTextLayout, View.ALPHA, 1f).setDuration(100)
-        val signup = ObjectAnimator.ofFloat(binding.signupButton, View.ALPHA, 1f).setDuration(100)
-
+        val login = ObjectAnimator.ofFloat(binding.btnSignin, View.ALPHA, 1f).setDuration(100)
 
         AnimatorSet().apply {
             playSequentially(
-                nameTextView,
-                nameEditTextLayout,
                 emailTextView,
                 emailEditTextLayout,
                 passwordTextView,
                 passwordEditTextLayout,
-                signup
+                login
             )
             startDelay = 100
         }.start()
     }
+
 }
