@@ -10,11 +10,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.App.SplashScreen"
+        android:theme="@style/Base.Theme.MatchSense"
         tools:targetApi="31">
         <activity
             android:name=".view.signup.SignupActivity"
-            android:exported="false" />
+            android:exported="false"/>
         <activity
             android:name=".view.splashscreen.SplashActivity"
             android:exported="true">
