@@ -15,6 +15,7 @@ class CustomPasswordInput @JvmOverloads constructor(
     init {
         addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (s.toString().length < 8) {
                     setError("Password tidak boleh kurang dari 8 karakter", null)
