@@ -5,12 +5,19 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.dicoding.matchsense.R
 import com.dicoding.matchsense.databinding.ActivityMainBinding
+import com.dicoding.matchsense.view.Convert.ConvertActivity
+import com.dicoding.matchsense.view.Settings.SettingsActivity
+import com.dicoding.matchsense.view.Translate.TranslateActivity
 import com.dicoding.matchsense.view.ViewModelFactory
+import com.dicoding.matchsense.view.compare.CompareActivity
+import com.dicoding.matchsense.view.profile.ProfileActivity
 import com.dicoding.matchsense.view.welcome.WelcomeActivity
 
 class MainActivity : AppCompatActivity() {
@@ -42,7 +49,53 @@ class MainActivity : AppCompatActivity() {
             } else {
                 binding = ActivityMainBinding.inflate(layoutInflater)
                 setContentView(binding.root)
-                setSupportActionBar(binding.toolbar)
+//                setSupportActionBar(binding.toolbar)
+                action()
+            }
+        }
+    }
+
+    private fun action() {
+        binding.apply {
+            profileButton.setOnClickListener {
+                intent = Intent(this@MainActivity, ProfileActivity::class.java)
+                startActivity(intent)
+            }
+
+            // Compare Card
+            compareCard.cardTitle.text = getString(R.string.compare)
+            compareCard.cardDescription.text = getString(R.string.compare_description)
+            compareCard.card.setCardBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.soft_blue))
+            compareCard.card.setOnClickListener {
+                intent = Intent(this@MainActivity, CompareActivity::class.java)
+                startActivity(intent)
+            }
+
+            // Translation
+            translateCard.cardTitle.text = getString(R.string.translate)
+            translateCard.cardDescription.text = getString(R.string.translate_description)
+            translateCard.card.setCardBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.soft_green))
+            translateCard.card.setOnClickListener {
+                intent = Intent(this@MainActivity, TranslateActivity::class.java)
+                startActivity(intent)
+            }
+
+            //Convert To PDF
+            convertCard.cardTitle.text = getString(R.string.convert)
+            convertCard.cardDescription.text = getString(R.string.convert_description)
+            convertCard.card.setCardBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.soft_orange))
+            convertCard.card.setOnClickListener {
+                intent = Intent(this@MainActivity, ConvertActivity::class.java)
+                startActivity(intent)
+            }
+
+            //Settings
+            settingsCard.cardTitle.text = getString(R.string.settings)
+            settingsCard.cardDescription.text = getString(R.string.settings_description)
+            settingsCard.card.setCardBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.soft_gray))
+            settingsCard.card.setOnClickListener {
+                intent = Intent(this@MainActivity, SettingsActivity::class.java)
+                startActivity(intent)
             }
         }
     }

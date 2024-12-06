@@ -8,9 +8,11 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.dicoding.matchsense.R
 import com.dicoding.matchsense.data.Result
 import com.dicoding.matchsense.data.pref.UserModel
 import com.dicoding.matchsense.databinding.ActivityLoginBinding
@@ -33,6 +35,8 @@ class LoginActivity : AppCompatActivity() {
         setupAction()
         playAnimation()
     }
+
+
 
     private fun setupView() {
         @Suppress("DEPRECATION")
@@ -96,11 +100,11 @@ class LoginActivity : AppCompatActivity() {
 
 
     private fun playAnimation() {
-        ObjectAnimator.ofFloat(binding.imageView, View.TRANSLATION_X, -30f, 30f).apply {
-            duration = 6000
-            repeatCount = ObjectAnimator.INFINITE
-            repeatMode = ObjectAnimator.REVERSE
-        }.start()
+//        ObjectAnimator.ofFloat(binding.imageView, View.TRANSLATION_X, -30f, 30f).apply {
+//            duration = 6000
+//            repeatCount = ObjectAnimator.INFINITE
+//            repeatMode = ObjectAnimator.REVERSE
+//        }.start()
 
         val emailTextView =
             ObjectAnimator.ofFloat(binding.emailTextView, View.ALPHA, 1f).setDuration(100)

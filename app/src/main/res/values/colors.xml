@@ -20,4 +20,10 @@
 	<color name="rectangle_15_color">#ffffff</color>
 	<color name="ellipse_11_color">#6A7FFF</color>
 	<color name="bgColor">#6D60F8</color>
+	<color name="darker_gray">#8A8A8A</color>
+	<color name="soft_blue">#6C9DFF</color>
+	<color name="soft_red">#E47777</color>
+	<color name="soft_green">#6CDCA0</color>
+	<color name="soft_orange">#E69F52</color>
+	<color name="soft_gray">#B0B0B0</color>
 </resources>

@@ -16,6 +16,17 @@
     <string name="already_have_an_account">Already have an account?</string>
     <string name="dont_have_an_account">Don\'t have an account?</string>
     <string name="MatchSense">MatchSense</string>
+    <string name="compare">Compare</string>
+    <string name="compare_description">Comparing two text to check similarity between them</string>
+    <string name="translate">Translate</string>
+    <string name="translate_description">Translate from English to Indonesia or vice versa</string>
+    <string name="convert">Convert To PDF</string>
+    <string name="convert_description">Convert anything from text or image to PDF files</string>
+    <string name="settings">Settings</string>
+    <string name="settings_description">This is a setting button, click to open setting menu</string>
+    <string name="feature">Main Feature</string>
+    <string name="other">Other</string>
+    <string name="profile">profile</string>
 
 
 </resources>

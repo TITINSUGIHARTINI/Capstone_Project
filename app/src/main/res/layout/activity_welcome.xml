@@ -8,6 +8,39 @@
     android:background="@color/bgColor"
     tools:context=".view.welcome.WelcomeActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/top_left_bubble"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/top_right_bubble"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="fitXY"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/bottom_right_bubble"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/bottom_left_bubble"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -17,30 +50,20 @@
         android:text="@string/let_s_get_started"
         android:textColor="@color/white"
         android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/bg_icon_welcome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="@+id/bg_sparkle_welcome"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/bg_sparkle_welcome"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/bg_sparkle_welcome"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/bg_icon_welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/bg_icon_welcome"
-        app:layout_constraintBottom_toBottomOf="@+id/bg_sparkle_welcome"
-        app:layout_constraintEnd_toEndOf="@+id/bg_sparkle_welcome"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -59,12 +82,13 @@
         android:id="@+id/btnSignup"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="-150dp"
         android:backgroundTint="@color/yellow"
         android:fontFamily="@font/montserrat_medium"
         android:padding="5dp"
         android:text="@string/btn_signup"
         android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bg_icon_welcome" />
@@ -73,27 +97,26 @@
         android:id="@+id/tvBtnSignin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:focusable="true"
         android:clickable="true"
+        android:focusable="true"
         android:text="@string/btn_signin"
         android:textColor="@color/yellow"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintEnd_toEndOf="@+id/btnSignup"
+        app:layout_constraintHorizontal_bias="0.145"
         app:layout_constraintStart_toEndOf="@+id/tvSignIn"
-        app:layout_constraintTop_toBottomOf="@+id/btnSignup" />
+        app:layout_constraintTop_toTopOf="@+id/tvSignIn" />
 
     <TextView
         android:id="@+id/tvSignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="8dp"
         android:text="@string/already_have_an_account"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/btnSignup"
         app:layout_constraintTop_toBottomOf="@+id/btnSignup" />
 
 
