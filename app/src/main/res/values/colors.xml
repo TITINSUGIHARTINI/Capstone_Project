@@ -26,4 +26,7 @@
 	<color name="soft_green">#6CDCA0</color>
 	<color name="soft_orange">#E69F52</color>
 	<color name="soft_gray">#B0B0B0</color>
+    <color name="softWhite">#F5F5F5</color>
+	<color name="btnLogoutStroke">#D31F50</color>"
+
 </resources>

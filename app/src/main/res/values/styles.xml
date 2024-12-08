@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<!-- splash_screen styles -->
 
-<!--	<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
-<!--		<item name="colorPrimary">@color/colorPrimary</item>-->
-<!--		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
-<!--		<item name="colorAccent">@color/colorAccent</item>-->
-<!--	</style>-->
+	// Button logout stroke color
+	<style name="CustomOutlinedButton" parent="Widget.Material3.Button.OutlinedButton">
+		<item name="android:textColor">@color/btnLogoutStroke</item>
+		<item name="strokeColor">@color/btnLogoutStroke</item>
+		<item name="strokeWidth">2dp</item>
+	</style>
+
 
 </resources>

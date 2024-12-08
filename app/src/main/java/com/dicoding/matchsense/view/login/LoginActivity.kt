@@ -68,7 +68,12 @@ class LoginActivity : AppCompatActivity() {
                         } else {
                             Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show()
                             viewModel.saveSession(
-                                UserModel(email, result.data.loginResult?.token.orEmpty(), true)
+                                UserModel(
+                                    username = result.data.loginResult?.name.orEmpty(),
+                                    email = email,
+                                    token = result.data.loginResult?.token.orEmpty(),
+                                    isLogin = true
+                                )
                             )
                             val intent = Intent(this, MainActivity::class.java)
                             intent.flags =
@@ -100,11 +105,6 @@ class LoginActivity : AppCompatActivity() {
 
 
     private fun playAnimation() {
-//        ObjectAnimator.ofFloat(binding.imageView, View.TRANSLATION_X, -30f, 30f).apply {
-//            duration = 6000
-//            repeatCount = ObjectAnimator.INFINITE
-//            repeatMode = ObjectAnimator.REVERSE
-//        }.start()
 
         val emailTextView =
             ObjectAnimator.ofFloat(binding.emailTextView, View.ALPHA, 1f).setDuration(100)
