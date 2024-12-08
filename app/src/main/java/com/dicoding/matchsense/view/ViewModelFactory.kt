@@ -7,6 +7,7 @@ import com.dicoding.matchsense.data.repository.UserRepository
 import com.dicoding.matchsense.di.Injection
 import com.dicoding.matchsense.view.login.LoginViewModel
 import com.dicoding.matchsense.view.main.MainViewModel
+import com.dicoding.matchsense.view.profile.ProfileViewModel
 import com.dicoding.matchsense.view.signup.SignupViewModel
 
 class ViewModelFactory(
@@ -23,8 +24,14 @@ class ViewModelFactory(
             modelClass.isAssignableFrom(SignupViewModel::class.java) -> {
                 SignupViewModel(repository) as T
 
-            }modelClass.isAssignableFrom(MainViewModel::class.java) -> {
+            }
+
+            modelClass.isAssignableFrom(MainViewModel::class.java) -> {
                 MainViewModel(repository) as T
+            }
+
+            modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
+                ProfileViewModel(repository) as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)

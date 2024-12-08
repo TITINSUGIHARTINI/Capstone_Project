@@ -15,7 +15,6 @@ class WelcomeActivity : AppCompatActivity() {
         setContentView(binding.root)
         setupAction()
 
-
     }
 
     private fun setupAction() {
