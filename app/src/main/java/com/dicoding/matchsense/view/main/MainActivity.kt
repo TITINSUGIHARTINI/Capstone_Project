@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -75,6 +76,7 @@ class MainActivity : AppCompatActivity() {
             translateCard.cardTitle.text = getString(R.string.translate)
             translateCard.cardDescription.text = getString(R.string.translate_description)
             translateCard.card.setCardBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.soft_green))
+            translateCard.icon.setBackgroundResource(R.drawable.translate)
             translateCard.card.setOnClickListener {
                 intent = Intent(this@MainActivity, TranslateActivity::class.java)
                 startActivity(intent)
@@ -93,6 +95,8 @@ class MainActivity : AppCompatActivity() {
             settingsCard.cardTitle.text = getString(R.string.settings)
             settingsCard.cardDescription.text = getString(R.string.settings_description)
             settingsCard.card.setCardBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.soft_gray))
+            settingsCard.icon.setBackgroundResource(R.drawable.settings)
+            settingsCard.icon.scaleType = ImageView.ScaleType.FIT_XY
             settingsCard.card.setOnClickListener {
                 intent = Intent(this@MainActivity, SettingsActivity::class.java)
                 startActivity(intent)
