@@ -1,8 +1,8 @@
 package com.dicoding.matchsense.data.remote.retrofit.config
 
 import com.dicoding.matchsense.BuildConfig
-import com.dicoding.matchsense.data.remote.retrofit.service.ApiService
 import com.dicoding.matchsense.data.remote.retrofit.service.ApiServiceSynonym
+import com.dicoding.matchsense.utils.Key
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -22,6 +22,7 @@ object ApiConfigSynonym {
         val authInterceptor = Interceptor { chain ->
             val req = chain.request()
             val requesHeaders = req.newBuilder()
+            requesHeaders.addHeader("X-Api-Key", Key.SYNONYM_API_KEY)
             chain.proceed(requesHeaders.build())
         }
 
