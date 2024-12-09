@@ -1,9 +1,12 @@
 package com.dicoding.matchsense.view.synonym
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dicoding.matchsense.databinding.SynonymCardBinding
+import com.dicoding.matchsense.view.synonym.detail.SynonymMeaningActivity
+import com.dicoding.matchsense.view.synonym.detail.SynonymMeaningActivity.Companion.SYNONYM_MEANING
 
 class SynonymAdapter(private val listSynonym: ArrayList<String>): RecyclerView.Adapter<SynonymAdapter.ViewHolder>() {
 
@@ -11,6 +14,12 @@ class SynonymAdapter(private val listSynonym: ArrayList<String>): RecyclerView.A
     RecyclerView.ViewHolder(binding.root) {
         fun bind(synonym: String) {
             binding.synonymTv.text = synonym
+
+            itemView.setOnClickListener {
+                val intent = Intent(itemView.context, SynonymMeaningActivity::class.java)
+                intent.putExtra(SYNONYM_MEANING, synonym)
+                itemView.context.startActivity(intent)
+            }
         }
     }
 

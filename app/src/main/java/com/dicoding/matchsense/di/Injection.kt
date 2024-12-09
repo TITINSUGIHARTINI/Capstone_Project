@@ -7,6 +7,7 @@ import com.dicoding.matchsense.data.remote.retrofit.config.ApiConfig
 import com.dicoding.matchsense.data.remote.retrofit.config.ApiConfigSynonym
 import com.dicoding.matchsense.data.repository.SynonymRepository
 import com.dicoding.matchsense.data.repository.UserRepository
+import com.dicoding.matchsense.data.repository.GeminiRepository
 
 object Injection {
     fun provideRepository(context: Context): UserRepository {
@@ -18,5 +19,9 @@ object Injection {
     fun synonymRepository(): SynonymRepository {
         val apiService = ApiConfigSynonym.getApiService()
         return SynonymRepository.getInstance(apiService)
+    }
+
+    fun geminiRepository(): GeminiRepository {
+        return GeminiRepository.getInstance()
     }
 }
