@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.dicoding.matchsense.data.pref.UserPreference
-import com.dicoding.matchsense.data.remote.ApiService
+import com.dicoding.matchsense.data.remote.retrofit.service.ApiService
 import com.dicoding.matchsense.data.remote.response.ErrorResponse
 import com.dicoding.matchsense.data.remote.response.LoginResponse
 import com.google.gson.Gson

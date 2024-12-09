@@ -1,4 +1,4 @@
-package com.dicoding.matchsense.data.remote
+package com.dicoding.matchsense.data.remote.retrofit.config
 
 import com.dicoding.matchsense.data.pref.UserPreference
 import kotlinx.coroutines.flow.firstOrNull
@@ -9,6 +9,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import com.dicoding.matchsense.BuildConfig
+import com.dicoding.matchsense.data.remote.retrofit.service.ApiService
 
 
 object ApiConfig {
