@@ -3,15 +3,18 @@ package com.dicoding.matchsense.view
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.dicoding.matchsense.data.repository.SynonymRepository
 import com.dicoding.matchsense.data.repository.UserRepository
 import com.dicoding.matchsense.di.Injection
 import com.dicoding.matchsense.view.login.LoginViewModel
 import com.dicoding.matchsense.view.main.MainViewModel
 import com.dicoding.matchsense.view.profile.ProfileViewModel
 import com.dicoding.matchsense.view.signup.SignupViewModel
+import com.dicoding.matchsense.view.synonym.SynonymViewModel
 
 class ViewModelFactory(
     private val repository: UserRepository,
+    private val synonymRepository: SynonymRepository
 ) : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
@@ -34,6 +37,10 @@ class ViewModelFactory(
                 ProfileViewModel(repository) as T
             }
 
+            modelClass.isAssignableFrom(SynonymViewModel::class.java) -> {
+                SynonymViewModel(synonymRepository) as T
+            }
+
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
     }
@@ -48,6 +55,7 @@ class ViewModelFactory(
                 synchronized(ViewModelFactory::class.java) {
                     INSTANCE = ViewModelFactory(
                         Injection.provideRepository(context),
+                        Injection.synonymRepository()
                     )
                 }
             }
