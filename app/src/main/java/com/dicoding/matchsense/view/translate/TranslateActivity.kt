@@ -22,5 +22,13 @@ class TranslateActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        setupAction()
+    }
+
+    private fun setupAction() {
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
     }
 }

@@ -5,16 +5,19 @@
     android:id="@+id/card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginStart="2dp"
+    android:layout_marginEnd="2dp"
+    android:layout_marginBottom="16dp"
     app:cardCornerRadius="16dp"
-    app:cardElevation="2dp"
-    android:layout_marginBottom="16dp">
+    app:cardElevation="2dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginStart="2dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="8dp" >
+        android:padding="8dp">
 
         <TextView
             android:id="@+id/synonym_tv"
@@ -22,7 +25,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="16sp"
-            tools:text="asdasdad"/>
+            tools:text="asdasdad" />
 
     </LinearLayout>
 

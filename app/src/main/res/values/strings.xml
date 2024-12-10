@@ -37,6 +37,7 @@
     <string name="search">Search</string>
     <string name="back_button">Back button</string>
     <string name="result_not_found">Result Not Found</string>
+    <string name="no_word_toast">Please enter a word</string>
 
 
 </resources>

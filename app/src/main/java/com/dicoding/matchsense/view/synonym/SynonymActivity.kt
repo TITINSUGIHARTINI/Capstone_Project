@@ -40,12 +40,16 @@ class SynonymActivity : AppCompatActivity() {
     private fun setupAction() {
         binding.searchButton.setOnClickListener {
             val word = binding.searchEditText.text.toString()
-            getSynonym(word)
             if(::synonymAdapter.isInitialized) {
                 synonymAdapter.clear()
                 binding.synonymRv.adapter = synonymAdapter
             }
+            if(word.isEmpty() || word.isBlank()) {
+                Toast.makeText(this, getString(R.string.no_word_toast), Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             binding.notFoundTv.visibility = View.GONE
+            getSynonym(word)
         }
         binding.btnBack.setOnClickListener {
             finish()
