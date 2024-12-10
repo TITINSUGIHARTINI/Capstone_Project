@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.synonym.detail.SynonymMeaningActivity">
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:alpha="100"
+        android:background="@null"
+        android:contentDescription="@string/back_button"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="13dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="@string/word_meaning"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/tv_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/powered_by"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView6"
+            app:layout_constraintStart_toStartOf="@+id/tv_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="41dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/google_ai_gemini"
+            app:layout_constraintEnd_toEndOf="@+id/tv_title"
+            tools:layout_editor_absoluteY="50dp" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@color/soft_blue"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/what_is_the_meaning_of_the_word"
+            android:textColor="@color/softWhite"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textMeaningTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/softWhite"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            tools:text="Valeidoscope" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textMeaningDescriptionTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacinia dictum velit, ac laoreet quam facilisis ut. Sed eget porttitor orci, et pharetra ipsum. Fusce sed nunc suscipit, accumsan mi mollis, finibus purus. Nullam volutpat nulla ligula, eget tristique velit viverra non. Praesent et dolor ac dui ornare ultricies. Morbi vestibulum eget urna a lacinia. Phasellus purus ligula, tincidunt sed posuere in, rutrum finibus augue. Donec et diam sit amet massa rhoncus luctus lacinia a nisi. Praesent at ullamcorper arcu. Aliquam quis scelerisque mi. Duis pellentesque fermentum dui, eget feugiat augue semper in.
+
+Maecenas at sem iaculis, laoreet odio in, dignissim purus. Mauris non nulla ornare, vestibulum leo ut, tristique massa. Curabitur non pharetra urna, et pretium purus. Cras a nisi sit amet nisl molestie ullamcorper. Maecenas tortor felis, luctus eget aliquam non, sagittis ac risus. Aenean orci lectus, imperdiet ut cursus ac, scelerisque in elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed pretium, massa elementum egestas auctor, sapien nisi varius purus, pellentesque iaculis elit leo sit amet est. Cras dui odio, aliquam nec urna sed, ultricies blandit ligula. Nunc dignissim dictum ornare.
+
+Nam sit amet egestas augue. Suspendisse vehicula laoreet justo, sed ornare purus placerat vel. Morbi sagittis, magna eget pretium sagittis, sapien nisi aliquam justo, non sagittis massa eros sed eros. Praesent a venenatis tortor. Ut tincidunt, elit eu vulputate tincidunt, eros tellus vehicula risus, vitae efficitur diam enim ut mi. Suspendisse ornare lorem sit amet faucibus egestas. Sed cursus turpis arcu, sed tempor nulla maximus quis. Pellentesque consequat diam ut vulputate euismod. Cras metus erat, posuere id sem in, rhoncus aliquam odio. Nulla placerat cursus ultricies. Suspendisse non nulla dignissim, vehicula sapien sed, fringilla purus. Cras at nibh sodales nibh molestie euismod vitae vitae nisl. Donec tortor purus, auctor vel accumsan sit amet, hendrerit vitae enim. Nulla consequat, sapien sit amet dignissim maximus, urna risus sollicitudin sem, a volutpat nulla ipsum sed tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer eu eros cursus, lobortis eros nec, sollicitudin dolor.
+
+Integer varius rutrum ante, id aliquam nulla tempus non. In in dui nec sem gravida vestibulum. Fusce quis dui in metus sodales accumsan sit amet vitae lacus. Nam viverra lorem in elit aliquet consectetur. Sed sit amet fermentum elit. Duis lobortis mi sed tortor viverra dapibus. Sed semper dui a ligula semper ullamcorper. Etiam sit amet vestibulum turpis, in ultrices dolor. Quisque vel orci dictum, lobortis dolor at, mattis arcu. Aliquam ornare, enim non pellentesque iaculis, justo dolor lacinia elit, dignissim cursus ligula tortor ac enim. Donec bibendum arcu eget purus imperdiet, sed malesuada elit gravida. Nullam euismod pharetra magna eget blandit." />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="57dp"
+        android:layout_height="49dp"
+        android:indeterminate="true"
+        android:indeterminateTint="@android:color/black"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
