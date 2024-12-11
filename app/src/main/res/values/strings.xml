@@ -39,8 +39,14 @@
     <string name="result_not_found">Result Not Found</string>
     <string name="no_word_toast">Please enter a word</string>
     <string name="word_meaning">Word Meaning</string>
-    <string name="what_is_the_meaning_of_the_word">What is The Meaning of The Word</string>
+    <string name="what_is_the_meaning_of_the_word">Meaning of The Word</string>
     <string name="powered_by">Powered by</string>
+    <string name="enter_text">Enter Text</string>
+    <string name="indonesian">Indonesian</string>
+    <string name="english">English</string>
+    <string name="no_text_toast">Please enter a text</string>
+    <string name="switch_translate">Switch Translate</string>
+    <string name="to">to</string>
 
 
 </resources>

@@ -88,7 +88,8 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Meaning of the Word" />
 
         <TextView
             android:id="@+id/textMeaningTv"
@@ -125,18 +126,18 @@
 
             <TextView
                 android:id="@+id/textMeaningDescriptionTv"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/rounded_background"
+                android:padding="8dp"
+                android:textColor="@color/white"
+                android:textIsSelectable="true"
                 android:textSize="16sp"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacinia dictum velit, ac laoreet quam facilisis ut. Sed eget porttitor orci, et pharetra ipsum. Fusce sed nunc suscipit, accumsan mi mollis, finibus purus. Nullam volutpat nulla ligula, eget tristique velit viverra non. Praesent et dolor ac dui ornare ultricies. Morbi vestibulum eget urna a lacinia. Phasellus purus ligula, tincidunt sed posuere in, rutrum finibus augue. Donec et diam sit amet massa rhoncus luctus lacinia a nisi. Praesent at ullamcorper arcu. Aliquam quis scelerisque mi. Duis pellentesque fermentum dui, eget feugiat augue semper in.
-
-Maecenas at sem iaculis, laoreet odio in, dignissim purus. Mauris non nulla ornare, vestibulum leo ut, tristique massa. Curabitur non pharetra urna, et pretium purus. Cras a nisi sit amet nisl molestie ullamcorper. Maecenas tortor felis, luctus eget aliquam non, sagittis ac risus. Aenean orci lectus, imperdiet ut cursus ac, scelerisque in elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed pretium, massa elementum egestas auctor, sapien nisi varius purus, pellentesque iaculis elit leo sit amet est. Cras dui odio, aliquam nec urna sed, ultricies blandit ligula. Nunc dignissim dictum ornare.
-
-Nam sit amet egestas augue. Suspendisse vehicula laoreet justo, sed ornare purus placerat vel. Morbi sagittis, magna eget pretium sagittis, sapien nisi aliquam justo, non sagittis massa eros sed eros. Praesent a venenatis tortor. Ut tincidunt, elit eu vulputate tincidunt, eros tellus vehicula risus, vitae efficitur diam enim ut mi. Suspendisse ornare lorem sit amet faucibus egestas. Sed cursus turpis arcu, sed tempor nulla maximus quis. Pellentesque consequat diam ut vulputate euismod. Cras metus erat, posuere id sem in, rhoncus aliquam odio. Nulla placerat cursus ultricies. Suspendisse non nulla dignissim, vehicula sapien sed, fringilla purus. Cras at nibh sodales nibh molestie euismod vitae vitae nisl. Donec tortor purus, auctor vel accumsan sit amet, hendrerit vitae enim. Nulla consequat, sapien sit amet dignissim maximus, urna risus sollicitudin sem, a volutpat nulla ipsum sed tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer eu eros cursus, lobortis eros nec, sollicitudin dolor.
-
-Integer varius rutrum ante, id aliquam nulla tempus non. In in dui nec sem gravida vestibulum. Fusce quis dui in metus sodales accumsan sit amet vitae lacus. Nam viverra lorem in elit aliquet consectetur. Sed sit amet fermentum elit. Duis lobortis mi sed tortor viverra dapibus. Sed semper dui a ligula semper ullamcorper. Etiam sit amet vestibulum turpis, in ultrices dolor. Quisque vel orci dictum, lobortis dolor at, mattis arcu. Aliquam ornare, enim non pellentesque iaculis, justo dolor lacinia elit, dignissim cursus ligula tortor ac enim. Donec bibendum arcu eget purus imperdiet, sed malesuada elit gravida. Nullam euismod pharetra magna eget blandit." />
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacinia dictum velit, ac laoreet quam facilisis ut. Sed eget porttitor orci, et pharetra ipsum. Fusce sed nunc suscipit, accumsan mi mollis, finibus purus."
+                tools:visibility="visible" />
 
         </LinearLayout>
     </ScrollView>
