@@ -12,7 +12,7 @@ import com.dicoding.matchsense.view.main.MainViewModel
 import com.dicoding.matchsense.view.profile.ProfileViewModel
 import com.dicoding.matchsense.view.signup.SignupViewModel
 import com.dicoding.matchsense.view.synonym.SynonymViewModel
-import com.dicoding.matchsense.view.synonym.detail.SynonymMeaningViewModel
+import com.dicoding.matchsense.view.synonym.meaning.SynonymMeaningViewModel
 
 class ViewModelFactory(
     private val repository: UserRepository,

@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dicoding.matchsense.databinding.SynonymCardBinding
-import com.dicoding.matchsense.view.synonym.detail.SynonymMeaningActivity
-import com.dicoding.matchsense.view.synonym.detail.SynonymMeaningActivity.Companion.SYNONYM_MEANING
+import com.dicoding.matchsense.view.synonym.meaning.SynonymMeaningActivity
+import com.dicoding.matchsense.view.synonym.meaning.SynonymMeaningActivity.Companion.SYNONYM_MEANING
 
 class SynonymAdapter(private val listSynonym: ArrayList<String>): RecyclerView.Adapter<SynonymAdapter.ViewHolder>() {
 

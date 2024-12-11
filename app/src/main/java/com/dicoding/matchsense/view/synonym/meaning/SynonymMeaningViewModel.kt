@@ -1,4 +1,4 @@
-package com.dicoding.matchsense.view.synonym.detail
+package com.dicoding.matchsense.view.synonym.meaning
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

@@ -1,4 +1,4 @@
-package com.dicoding.matchsense.view.synonym.detail
+package com.dicoding.matchsense.view.synonym.meaning
 
 import android.os.Bundle
 import android.view.View
@@ -8,13 +8,11 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.matchsense.R
 import com.dicoding.matchsense.data.Result
 import com.dicoding.matchsense.databinding.ActivitySynonymMeaningBinding
 
 import com.dicoding.matchsense.view.ViewModelFactory
-import com.dicoding.matchsense.view.synonym.SynonymAdapter
 
 class SynonymMeaningActivity : AppCompatActivity() {
 
