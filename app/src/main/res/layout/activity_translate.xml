@@ -115,6 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
+            android:contentDescription="@string/to"
             android:src="@drawable/ic_arrow_right"
             app:tint="@color/darker_gray" />
 

@@ -46,6 +46,7 @@
     <string name="english">English</string>
     <string name="no_text_toast">Please enter a text</string>
     <string name="switch_translate">Switch Translate</string>
+    <string name="to">to</string>
 
 
 </resources>
