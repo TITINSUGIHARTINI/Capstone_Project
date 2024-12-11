@@ -55,6 +55,7 @@ class SynonymMeaningActivity : AppCompatActivity() {
                     binding.progressBar.visibility = View.GONE
                     val response = result.data
                     binding.textMeaningDescriptionTv.text = response
+                    binding.textMeaningDescriptionTv.visibility = View.VISIBLE
                 }
 
                 is Result.Error -> {

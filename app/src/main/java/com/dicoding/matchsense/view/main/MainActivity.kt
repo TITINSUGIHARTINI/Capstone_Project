@@ -99,6 +99,7 @@ class MainActivity : AppCompatActivity() {
                     R.color.soft_orange
                 )
             )
+            convertCard.icon.setBackgroundResource(R.drawable.synonym_icon)
             convertCard.card.setOnClickListener {
                 intent = Intent(this@MainActivity, SynonymActivity::class.java)
                 startActivity(intent)
