@@ -17,7 +17,7 @@ MatchSense is a machine learning project that leverages natural language process
 Here's a breakdown of the project files on this github:
 
 * `test_cut.cvs/`: Test data for the model.
-* `val_balanced_10k/`: Validation data for model evaluation.
+* `val_balanced_10k.csv/`: Validation data for model evaluation.
 * `ModelMatchsense.ipynb`: Jupyter Notebook containing the source code.
 * `requirements.txt`: File listing project dependencies.
 * `README.md`: This documentation file.
