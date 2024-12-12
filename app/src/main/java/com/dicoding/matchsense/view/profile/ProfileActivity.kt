@@ -12,7 +12,6 @@ import com.dicoding.matchsense.data.pref.dataStore
 import com.dicoding.matchsense.databinding.ActivityProfileBinding
 import com.dicoding.matchsense.helper.LocaleHelper
 import com.dicoding.matchsense.view.ViewModelFactory
-import com.dicoding.matchsense.view.login.LoginActivity
 import com.dicoding.matchsense.view.welcome.WelcomeActivity
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking

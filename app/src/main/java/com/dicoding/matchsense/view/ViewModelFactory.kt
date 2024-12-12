@@ -3,8 +3,6 @@ package com.dicoding.matchsense.view
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.dicoding.matchsense.data.pref.UserPreference
-import com.dicoding.matchsense.data.pref.dataStore
 import com.dicoding.matchsense.data.repository.UserRepository
 import com.dicoding.matchsense.di.Injection
 import com.dicoding.matchsense.view.login.LoginViewModel
