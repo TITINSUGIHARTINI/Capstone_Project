@@ -17,13 +17,12 @@
         android:orientation="horizontal"
         android:padding="16dp">
 
-        <!-- Circle Icon -->
-
-        <View
-            android:id="@+id/circleIcon"
+        <ImageView
+            android:id="@+id/icon"
             android:layout_width="77dp"
             android:layout_height="77dp"
             android:background="@drawable/app_logo"
+            android:importantForAccessibility="no"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -37,8 +36,8 @@
             android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/circleIcon"
-            app:layout_constraintTop_toTopOf="@+id/circleIcon"
+            app:layout_constraintStart_toEndOf="@+id/icon"
+            app:layout_constraintTop_toTopOf="@+id/icon"
             tools:text="Compare" />
 
         <View

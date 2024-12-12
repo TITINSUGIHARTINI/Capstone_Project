@@ -18,6 +18,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 //        buildConfigField("String", "BASE_URL", "\"https://story-api.dicoding.dev/v1/\"")
         buildConfigField("String", "BASE_URL", "\"https://login-regis-900808293702.asia-southeast2.run.app/\"")
+        buildConfigField("String", "SYNONYM_BASE_URL", "\"https://api.api-ninjas.com/v1/\"")
     }
 
     buildTypes {
@@ -49,6 +50,8 @@ dependencies {
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.activity:activity:1.9.3")
+    implementation(libs.generativeai)
+    implementation(libs.translate)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -69,5 +72,4 @@ dependencies {
 
     implementation(libs.glide)
     implementation ("androidx.work:work-runtime-ktx:2.8.1")
-
 }

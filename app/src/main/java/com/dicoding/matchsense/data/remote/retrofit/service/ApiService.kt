@@ -19,19 +19,4 @@ interface ApiService {
         @Body loginRequest: LoginRequest
     ): LoginMSResponse
 
-//    @FormUrlEncoded
-//    @POST("login")
-//    suspend fun login(
-//        @Field("email") email: String,
-//        @Field("password") password: String
-//    ): LoginMSResponse
-//
-//    @FormUrlEncoded
-//    @POST("register")
-//    suspend fun register(
-//        @Field("name") name: String,
-//        @Field("email") email: String,
-//        @Field("password") password: String
-//    ): RegisterMSResponse
-
 }

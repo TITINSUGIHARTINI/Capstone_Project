@@ -3,17 +3,20 @@ package com.dicoding.matchsense.data.repository
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
-import com.dicoding.matchsense.data.Result
 import com.dicoding.matchsense.data.model.LoginRequest
 import com.dicoding.matchsense.data.model.RegisterRequest
-import com.dicoding.matchsense.data.pref.UserModel
 import com.dicoding.matchsense.data.pref.UserPreference
 import com.dicoding.matchsense.data.remote.retrofit.service.ApiService
 import com.dicoding.matchsense.data.remote.response.LoginMSResponse
 import com.dicoding.matchsense.data.remote.response.RegisterMSResponse
+import com.dicoding.matchsense.data.remote.retrofit.service.ApiService
+import com.dicoding.matchsense.data.remote.response.ErrorResponse
+import com.dicoding.matchsense.data.remote.response.LoginResponse
 import com.google.gson.Gson
 import kotlinx.coroutines.flow.Flow
 import retrofit2.HttpException
+import com.dicoding.matchsense.data.Result
+import com.dicoding.matchsense.data.pref.UserModel
 
 class UserRepository private constructor(
     private val userPreference: UserPreference,
@@ -68,43 +71,6 @@ class UserRepository private constructor(
             emit(Result.Error(e.message.toString()))
         }
     }
-
-//    fun signUp(name: String, email: String, password: String): LiveData<Result<RegisterMSResponse>> =
-//        liveData {
-//            emit(Result.Loading)
-//            try {
-//                val request = RegisterRequest(name, email, password)
-//                val response = apiService.register(request)
-//                emit(Result.Success(response))
-//            } catch (e: HttpException) {
-//                val errorBody = e.response()?.errorBody()?.string()
-//                Log.e("Signup", "HTTP Error: ${e.code()}")
-//                Log.e("Signup", "Error Body: $errorBody")
-//
-//                emit(Result.Error(errorBody ?: "Registration failed"))
-//            } catch (e: Exception) {
-//                Log.e("Signup", "Unexpected Error: ${e.message}")
-//                emit(Result.Error(e.message.toString()))
-//            }
-//        }
-//
-//    fun login(email: String, password: String): LiveData<Result<LoginMSResponse>> = liveData {
-//        emit(Result.Loading)
-//        try {
-//            val request = LoginRequest(email, password)
-//            val response = apiService.login(request)
-//            emit(Result.Success(response))
-//        } catch (e: HttpException) {
-//            val errorBody = e.response()?.errorBody()?.string()
-//            Log.e("Login", "HTTP Error: ${e.code()}")
-//            Log.e("Login", "Error Body: $errorBody")
-//
-//            emit(Result.Error(errorBody ?: "Login failed"))
-//        } catch (e: Exception) {
-//            Log.e("Login", "Unexpected Error: ${e.message}")
-//            emit(Result.Error(e.message.toString()))
-//        }
-//    }
 
     suspend fun saveSession(user: UserModel) {
         userPreference.saveSession(user)

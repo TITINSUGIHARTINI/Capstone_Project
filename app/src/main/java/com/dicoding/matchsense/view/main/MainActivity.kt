@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.result.contract.ActivityResultContracts
+import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -18,13 +19,12 @@ import com.dicoding.matchsense.R
 import com.dicoding.matchsense.data.pref.UserPreference
 import com.dicoding.matchsense.data.pref.dataStore
 import com.dicoding.matchsense.databinding.ActivityMainBinding
-import com.dicoding.matchsense.helper.LocaleHelper
-import com.dicoding.matchsense.view.ViewModelFactory
-import com.dicoding.matchsense.view.compare.CompareActivity
-import com.dicoding.matchsense.view.convert.ConvertActivity
-import com.dicoding.matchsense.view.profile.ProfileActivity
+import com.dicoding.matchsense.view.synonym.SynonymActivity
 import com.dicoding.matchsense.view.settings.SettingsActivity
 import com.dicoding.matchsense.view.translate.TranslateActivity
+import com.dicoding.matchsense.view.ViewModelFactory
+import com.dicoding.matchsense.view.compare.CompareActivity
+import com.dicoding.matchsense.view.profile.ProfileActivity
 import com.dicoding.matchsense.view.welcome.WelcomeActivity
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
@@ -110,28 +110,30 @@ class MainActivity : AppCompatActivity() {
             // Translation
             translateCard.cardTitle.text = getString(R.string.translate)
             translateCard.cardDescription.text = getString(R.string.translate_description)
-            translateCard.card.setCardBackgroundColor(
+             translateCard.card.setCardBackgroundColor(
                 ContextCompat.getColor(
                     this@MainActivity,
                     R.color.soft_green
                 )
             )
+            translateCard.icon.setBackgroundResource(R.drawable.translate)
             translateCard.card.setOnClickListener {
                 intent = Intent(this@MainActivity, TranslateActivity::class.java)
                 startActivity(intent)
             }
 
-            //Convert To PDF
-            convertCard.cardTitle.text = getString(R.string.convert)
-            convertCard.cardDescription.text = getString(R.string.convert_description)
+            //Synonym Search
+            convertCard.cardTitle.text = getString(R.string.synonym)
+            convertCard.cardDescription.text = getString(R.string.synonym_description)
             convertCard.card.setCardBackgroundColor(
                 ContextCompat.getColor(
                     this@MainActivity,
                     R.color.soft_orange
                 )
             )
+            convertCard.icon.setBackgroundResource(R.drawable.synonym_icon)
             convertCard.card.setOnClickListener {
-                intent = Intent(this@MainActivity, ConvertActivity::class.java)
+                intent = Intent(this@MainActivity, SynonymActivity::class.java)
                 startActivity(intent)
             }
 
@@ -144,6 +146,8 @@ class MainActivity : AppCompatActivity() {
                     R.color.soft_gray
                 )
             )
+            settingsCard.icon.setBackgroundResource(R.drawable.settings)
+            settingsCard.icon.scaleType = ImageView.ScaleType.FIT_XY
             settingsCard.card.setOnClickListener {
                 intent = Intent(this@MainActivity, SettingsActivity::class.java)
                 startActivity(intent)
