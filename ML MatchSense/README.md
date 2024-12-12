@@ -8,6 +8,8 @@ MatchSense is a machine learning project that leverages natural language process
 - Text Similarity Calculation: Bilateral LSTM-based model to compute similarity scores.
 - Pretrained English Language Dataset: Optimized for English due to limited Indonesian datasets.
 - Model Serialization: Saved in .h5 and .json formats for easy deployment and integration.
+  
+![image](https://github.com/user-attachments/assets/880639c5-0fdd-4163-8d69-3002414a19d0)
 
 
 ## Project Structure
