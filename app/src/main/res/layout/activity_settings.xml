@@ -51,7 +51,7 @@
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:contentDescription="Language Icon"
+            android:contentDescription="@string/language_icon"
             android:src="@drawable/ic_language" />
 
 
@@ -66,9 +66,10 @@
             android:textSize="16sp" />
 
         <ImageView
+            android:id="@+id/btnLanguage"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:contentDescription="Chevron Right"
+            android:contentDescription="@string/language_button"
             android:src="@drawable/ic_chevron_right" />
 
 
@@ -98,14 +99,14 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_notification"
-            android:contentDescription="Notification Icon" />
+            android:contentDescription="@string/notification_icon" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginStart="16dp"
-            android:text="@string/notification"
+            android:text="@string/reminder"
             android:textSize="16sp"
             android:textColor="#000000"
             android:fontFamily="@font/montserrat_medium" />

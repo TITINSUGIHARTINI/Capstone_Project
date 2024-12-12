@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MatchSense</string>
+    <string name="ek_img_content">Gambar ExportKit</string>
+    <string name="name">Nama Lengkap</string>
+    <string name="email">Alamat Email</string>
+    <string name="password">Kata Sandi</string>
+    <string name="btn_signup">Daftar</string>
+    <string name="btn_login">Masuk</string>
+    <string name="btn_signin">Masuk</string>
+    <string name="signup_question">Sudah punya akun?</string>
+    <string name="logout">Keluar</string>
+    <string name="let_s_get_started">Ayo mulai!</string>
+    <string name="already_have_an_account">Sudah punya akun?</string>
+    <string name="dont_have_an_account">Belum punya akun?</string>
+    <string name="MatchSense">MatchSense</string>
+    <string name="compare">Komparasi</string>
+    <string name="compare_description">Membandingkan dua teks untuk memeriksa kesamaan di antara keduanya</string>
+    <string name="translate">Terjemahkan</string>
+    <string name="translate_description">Terjemahkan dari Inggris ke Indonesia atau sebaliknya</string>
+    <string name="convert">Konversi ke PDF</string>
+    <string name="convert_description">Mengonversi teks atau gambar ke file PDF</string>
+    <string name="settings">Pengaturan</string>
+    <string name="settings_description">Ini adalah tombol pengaturan, klik untuk membuka menu pengaturan</string>
+    <string name="feature">Fitur Utama</string>
+    <string name="other">Lainnya</string>
+    <string name="profile">Profil</string>
+    <string name="language">Bahasa</string>
+    <string name="reminder">Pengingat</string>
+    <string name="username">Nama Pengguna</string>
+    <string name="logout_confirmation">Konfirmasi Keluar</string>
+    <string name="are_you_sure_you_want_to_logout">Apakah Anda yakin ingin keluar?</string>
+    <string name="yes">Ya</string>
+    <string name="cancel">Batal</string>
+    <string name="language_icon">Ubah Ikon Bahasa</string>
+    <string name="language_button">Tombol Ubah Bahasa</string>
+    <string name="notification_icon">Aktifkan Ikon Notifikasi</string>
+    <string name="choose_language">Pilih Bahasa</string>
+    <string name="notification_title">MatchSense</string>
+    <string name="notification_message">Ini tes ya</string>
+    <string name="notification_subtext">Pengingat</string>
+
+</resources>

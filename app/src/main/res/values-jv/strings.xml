@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MatchSense</string>
+    <string name="ek_img_content">Gambar ExportKit</string>
+    <string name="name">Asma Lengkap</string>
+    <string name="email">Alamat Email</string>
+    <string name="password">Tembung Sandi</string>
+    <string name="btn_signup">Daftar</string>
+    <string name="btn_login">Mlebu</string>
+    <string name="btn_signin">Mlebu</string>
+    <string name="signup_question">Wis duwe akun?</string>
+    <string name="logout">Metu</string>
+    <string name="let_s_get_started">Ayo diwiwiti!</string>
+    <string name="already_have_an_account">Wis duwe akun?</string>
+    <string name="dont_have_an_account">Durung duwe akun?</string>
+    <string name="MatchSense">MatchSense</string>
+    <string name="compare">Mbandhingake</string>
+    <string name="compare_description">Mbandhingake loro teks kanggo mriksa padha utawa ora</string>
+    <string name="translate">Terjemahna</string>
+    <string name="translate_description">Terjemahna saka Inggris menyang Indonesia utawa sebaliknya</string>
+    <string name="convert">Konversi dadi PDF</string>
+    <string name="convert_description">Ngonversi teks utawa gambar dadi file PDF</string>
+    <string name="settings">Setelan</string>
+    <string name="settings_description">Iki tombol setelan, klik kanggo mbukak menu setelan</string>
+    <string name="feature">Fitur Utama</string>
+    <string name="other">Liyane</string>
+    <string name="profile">Profil</string>
+    <string name="language">Basa</string>
+    <string name="reminder">Pengingat</string>
+    <string name="username">Asma Pangguna</string>
+    <string name="logout_confirmation">Konfirmasi Metu</string>
+    <string name="are_you_sure_you_want_to_logout">Apa sampeyan yakin arep metu?</string>
+    <string name="yes">Ya</string>
+    <string name="cancel">Batal</string>
+    <string name="language_icon">Ganti Ikon Basa</string>
+    <string name="language_button">Tombol Ganti Basa</string>
+    <string name="notification_icon">Aktifake Ikon Notifikasi</string>
+    <string name="choose_language">Pilih Basa</string>
+    <string name="notification_title">MatchSense</string>
+    <string name="notification_message">Iki tes yo</string>
+    <string name="notification_subtext">Pengingat</string>
+</resources>

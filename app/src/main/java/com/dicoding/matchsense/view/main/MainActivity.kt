@@ -1,23 +1,33 @@
 package com.dicoding.matchsense.view.main
 
+import android.Manifest
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.dicoding.matchsense.R
+import com.dicoding.matchsense.data.pref.UserPreference
+import com.dicoding.matchsense.data.pref.dataStore
 import com.dicoding.matchsense.databinding.ActivityMainBinding
-import com.dicoding.matchsense.view.convert.ConvertActivity
-import com.dicoding.matchsense.view.settings.SettingsActivity
-import com.dicoding.matchsense.view.translate.TranslateActivity
+import com.dicoding.matchsense.helper.LocaleHelper
 import com.dicoding.matchsense.view.ViewModelFactory
 import com.dicoding.matchsense.view.compare.CompareActivity
+import com.dicoding.matchsense.view.convert.ConvertActivity
 import com.dicoding.matchsense.view.profile.ProfileActivity
+import com.dicoding.matchsense.view.settings.SettingsActivity
+import com.dicoding.matchsense.view.translate.TranslateActivity
 import com.dicoding.matchsense.view.welcome.WelcomeActivity
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,7 +37,17 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    private val requestNotificationPermissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+            if (!isGranted) {
+                Log.w("MainActivity", "Notification permission denied")
+            }
+        }
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        val userPreference = UserPreference.getInstance(this.dataStore)
+        val language = runBlocking { userPreference.getLanguage().first() }
+        LocaleHelper.setLocale(this, language)
         super.onCreate(savedInstanceState)
 
         installSplashScreen().apply {
@@ -36,6 +56,19 @@ class MainActivity : AppCompatActivity() {
             }
         }
         isLogin()
+        checkAndRequestNotificationPermission()
+    }
+
+    private fun checkAndRequestNotificationPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.POST_NOTIFICATIONS
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                requestNotificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+            }
+        }
     }
 
     private fun isLogin() {
@@ -133,5 +166,15 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
+    override fun attachBaseContext(newBase: Context) {
+        val userPreference = UserPreference.getInstance(newBase.dataStore)
+        val language = runBlocking { userPreference.getLanguage().first() }
+        val context = LocaleHelper.setLocale(newBase, language)
+        super.attachBaseContext(context)
+    }
+
+
+
 
 }

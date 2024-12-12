@@ -2,6 +2,7 @@ package com.dicoding.matchsense.view.signup
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -12,9 +13,14 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.dicoding.matchsense.data.pref.UserPreference
+import com.dicoding.matchsense.data.pref.dataStore
 import com.dicoding.matchsense.databinding.ActivitySignupBinding
+import com.dicoding.matchsense.helper.LocaleHelper
 import com.dicoding.matchsense.view.ViewModelFactory
 import com.dicoding.matchsense.view.login.LoginActivity
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 
 class SignupActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignupBinding
@@ -23,6 +29,10 @@ class SignupActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val userPreference = UserPreference.getInstance(this.dataStore)
+        val language = runBlocking { userPreference.getLanguage().first() }
+        LocaleHelper.setLocale(this, language)
+
         super.onCreate(savedInstanceState)
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -54,26 +64,30 @@ class SignupActivity : AppCompatActivity() {
             viewModel.signUp(name, email, password).observe(this) { result ->
                 when (result) {
                     is com.dicoding.matchsense.data.Result.Success -> {
+                        Log.d("SignupActivity", "Response: ${result.data}")
                         binding.progressBar.visibility = View.GONE
-                        if (result.data.error == true) {
+                        val registerResponse = result.data
+                        if (registerResponse.msg.isNullOrEmpty()) {
                             Toast.makeText(
                                 this,
-                                "Register Failed: ${result.data.message}",
+                                "Register Failed: Unknown error",
                                 Toast.LENGTH_SHORT
                             ).show()
                         } else {
-                            Toast.makeText(this, "Register Success", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "${registerResponse.msg}", Toast.LENGTH_SHORT).show()
                             finish()
                         }
                     }
 
                     is com.dicoding.matchsense.data.Result.Error -> {
+                        Log.e("SignupActivity", "Error: ${result.error}")
                         binding.progressBar.visibility = View.GONE
                         Toast.makeText(this, "Register Failed: ${result.error}", Toast.LENGTH_SHORT)
                             .show()
                     }
 
                     com.dicoding.matchsense.data.Result.Loading -> {
+                        Log.d("SignupActivity", "Loading state triggered")
                         binding.progressBar.visibility = View.VISIBLE
                         Log.d("SignupActivity", "Loading state triggered")
                     }
@@ -118,4 +132,13 @@ class SignupActivity : AppCompatActivity() {
             startDelay = 100
         }.start()
     }
+
+    override fun attachBaseContext(newBase: Context) {
+        val userPreference = UserPreference.getInstance(newBase.dataStore)
+        val language = runBlocking { userPreference.getLanguage().first() }
+        val context = LocaleHelper.setLocale(newBase, language)
+        super.attachBaseContext(context)
+    }
+
+
 }

@@ -16,7 +16,8 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "BASE_URL", "\"https://story-api.dicoding.dev/v1/\"")
+//        buildConfigField("String", "BASE_URL", "\"https://story-api.dicoding.dev/v1/\"")
+        buildConfigField("String", "BASE_URL", "\"https://login-regis-900808293702.asia-southeast2.run.app/\"")
     }
 
     buildTypes {
@@ -67,4 +68,6 @@ dependencies {
     implementation(libs.gson)
 
     implementation(libs.glide)
+    implementation ("androidx.work:work-runtime-ktx:2.8.1")
+
 }

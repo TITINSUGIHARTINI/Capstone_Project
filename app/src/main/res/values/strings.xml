@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- splash_screen strings -->
-
-    <string name="app_name">UI </string>
+    <string name="app_name">MatchSense</string>
     <string name="ek_img_content">ExportKit Image</string>
     <string name="name">Full Name</string>
     <string name="email">Email Address</string>
@@ -28,12 +26,20 @@
     <string name="other">Other</string>
     <string name="profile">Profile</string>
     <string name="language">Language</string>
-    <string name="notification">Notification</string>
+    <string name="reminder">Reminder</string>
     <string name="username">Username</string>
     <string name="logout_confirmation">Logout Confirmation</string>
     <string name="are_you_sure_you_want_to_logout">Are you sure you want to logout?</string>
     <string name="yes">Yes</string>
     <string name="cancel">Cancel</string>
+    <string name="language_icon">Change Language Icon</string>
+    <string name="language_button">Change Language Button</string>
+    <string name="notification_icon">Enable Notification Icon</string>
+    <string name="choose_language">Choose Language</string>
+    <string name="notification_title">MatchSense</string>
+    <string name="notification_message">This is a test</string>
+    <string name="notification_subtext">Reminder</string>
+
 
 
 </resources>

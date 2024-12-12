@@ -34,20 +34,49 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
         }
     }
 
+
     suspend fun logout() {
         dataStore.edit { preferences ->
-            preferences.clear()
+            preferences[USERNAME_KEY] = ""
+            preferences[EMAIL_KEY] = ""
+            preferences[TOKEN_KEY] = ""
+            preferences[IS_LOGIN_KEY] = true
+        }
+    }
+
+    suspend fun saveLanguage(language: String) {
+        dataStore.edit { preferences ->
+            preferences[LANGUAGE_KEY] = language
+        }
+    }
+
+    fun getLanguage(): Flow<String> {
+        return dataStore.data.map { preferences ->
+            preferences[LANGUAGE_KEY] ?: "en"
+        }
+    }
+
+    suspend fun saveNotificationStatus(enabled: Boolean) {
+        dataStore.edit { preferences ->
+            preferences[NOTIFICATION_KEY] = enabled
+        }
+    }
+
+    fun getNotificationEnabled(): Flow<Boolean> {
+        return dataStore.data.map { preferences ->
+            preferences[NOTIFICATION_KEY] ?: false
         }
     }
 
     companion object {
         @Volatile
         private var INSTANCE: UserPreference? = null
-
         private val USERNAME_KEY = stringPreferencesKey("username")
         private val EMAIL_KEY = stringPreferencesKey("email")
         private val TOKEN_KEY = stringPreferencesKey("token")
         private val IS_LOGIN_KEY = booleanPreferencesKey("isLogin")
+        private val LANGUAGE_KEY = stringPreferencesKey("language")
+        private val NOTIFICATION_KEY = booleanPreferencesKey("notification_enabled")
 
         fun getInstance(dataStore: DataStore<Preferences>): UserPreference {
             return INSTANCE ?: synchronized(this) {

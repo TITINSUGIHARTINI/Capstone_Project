@@ -2,6 +2,7 @@ package com.dicoding.matchsense.view.login
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -15,10 +16,15 @@ import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.matchsense.R
 import com.dicoding.matchsense.data.Result
 import com.dicoding.matchsense.data.pref.UserModel
+import com.dicoding.matchsense.data.pref.UserPreference
+import com.dicoding.matchsense.data.pref.dataStore
 import com.dicoding.matchsense.databinding.ActivityLoginBinding
+import com.dicoding.matchsense.helper.LocaleHelper
 import com.dicoding.matchsense.view.ViewModelFactory
 import com.dicoding.matchsense.view.main.MainActivity
 import com.dicoding.matchsense.view.signup.SignupActivity
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 
 class LoginActivity : AppCompatActivity() {
     private val viewModel by viewModels<LoginViewModel> {
@@ -27,6 +33,10 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val userPreference = UserPreference.getInstance(this.dataStore)
+        val language = runBlocking { userPreference.getLanguage().first() }
+        LocaleHelper.setLocale(this, language)
+
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -35,7 +45,6 @@ class LoginActivity : AppCompatActivity() {
         setupAction()
         playAnimation()
     }
-
 
 
     private fun setupView() {
@@ -59,27 +68,27 @@ class LoginActivity : AppCompatActivity() {
                 when (result) {
                     is Result.Success -> {
                         binding.progressBar.visibility = View.GONE
-                        if (result.data.error == true) {
+                        val loginResponse = result.data
+                        if (loginResponse.accessToken != null) {
                             Toast.makeText(
                                 this,
-                                "Login Failed: ${result.data.message}",
+                                "Login Success",
                                 Toast.LENGTH_SHORT
                             ).show()
-                        } else {
-                            Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show()
                             viewModel.saveSession(
                                 UserModel(
-                                    username = result.data.loginResult?.name.orEmpty(),
+                                    username = loginResponse.name.orEmpty(),
                                     email = email,
-                                    token = result.data.loginResult?.token.orEmpty(),
+                                    token = loginResponse.accessToken,
                                     isLogin = true
                                 )
                             )
                             val intent = Intent(this, MainActivity::class.java)
-                            intent.flags =
-                                Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                             startActivity(intent)
                             finish()
+                        } else {
+                            Toast.makeText(this, "Login Failed: Invalid Credentials", Toast.LENGTH_SHORT).show()
                         }
                     }
 
@@ -127,5 +136,13 @@ class LoginActivity : AppCompatActivity() {
             startDelay = 100
         }.start()
     }
+
+    override fun attachBaseContext(newBase: Context) {
+        val userPreference = UserPreference.getInstance(newBase.dataStore)
+        val language = runBlocking { userPreference.getLanguage().first() }
+        val context = LocaleHelper.setLocale(newBase, language)
+        super.attachBaseContext(context)
+    }
+
 
 }

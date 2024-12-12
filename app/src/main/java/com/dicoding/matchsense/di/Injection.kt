@@ -3,7 +3,7 @@ package com.dicoding.matchsense.di
 import android.content.Context
 import com.dicoding.matchsense.data.pref.UserPreference
 import com.dicoding.matchsense.data.pref.dataStore
-import com.dicoding.matchsense.data.remote.ApiConfig
+import com.dicoding.matchsense.data.remote.retrofit.config.ApiConfig
 import com.dicoding.matchsense.data.repository.UserRepository
 
 object Injection {
