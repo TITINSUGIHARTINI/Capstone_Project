@@ -17,7 +17,7 @@ class SynonymRepository private constructor(
             val response = apiService.getSynonyms(word)
             emit(Result.Success(response))
         } catch (e: Exception) {
-            Log.e("Signup", "Error: ${e.message}")
+            Log.e("Synonim", "Error: ${e.message}")
             emit(Result.Error(e.message.toString()))
         }
     }

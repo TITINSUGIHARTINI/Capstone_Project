@@ -1,25 +1,22 @@
 package com.dicoding.matchsense.data.remote.retrofit.service
 
-import com.dicoding.matchsense.data.remote.response.ErrorResponse
-import com.dicoding.matchsense.data.remote.response.LoginResponse
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
+import com.dicoding.matchsense.data.model.authentication.LoginRequest
+import com.dicoding.matchsense.data.model.authentication.RegisterRequest
+import com.dicoding.matchsense.data.remote.response.LoginMSResponse
+import com.dicoding.matchsense.data.remote.response.RegisterMSResponse
+import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface ApiService {
-    @FormUrlEncoded
+
     @POST("register")
     suspend fun register(
-        @Field("name") name: String,
-        @Field("email") email: String,
-        @Field("password") password: String
-    ): ErrorResponse
+       @Body registerRequest: RegisterRequest
+    ): RegisterMSResponse
 
-    @FormUrlEncoded
     @POST("login")
     suspend fun login(
-        @Field("email") email: String,
-        @Field("password") password: String
-    ): LoginResponse
+        @Body loginRequest: LoginRequest
+    ): LoginMSResponse
 
 }

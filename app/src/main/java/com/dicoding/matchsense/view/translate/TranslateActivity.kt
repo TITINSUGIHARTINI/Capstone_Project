@@ -1,5 +1,6 @@
 package com.dicoding.matchsense.view.translate
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -8,10 +9,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.dicoding.matchsense.R
+import com.dicoding.matchsense.data.pref.UserPreference
+import com.dicoding.matchsense.data.pref.dataStore
 import com.dicoding.matchsense.databinding.ActivityTranslateBinding
+import com.dicoding.matchsense.helper.LocaleHelper
 import com.google.mlkit.nl.translate.TranslateLanguage
 import com.google.mlkit.nl.translate.Translation
 import com.google.mlkit.nl.translate.TranslatorOptions
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 
 class TranslateActivity : AppCompatActivity() {
 
@@ -19,6 +25,9 @@ class TranslateActivity : AppCompatActivity() {
     private var translateTo = "English"
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val userPreference = UserPreference.getInstance(this.dataStore)
+        val language = runBlocking { userPreference.getLanguage().first() }
+        LocaleHelper.setLocale(this, language)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityTranslateBinding.inflate(layoutInflater)
@@ -99,5 +108,12 @@ class TranslateActivity : AppCompatActivity() {
             .addOnFailureListener { exception ->
                 Toast.makeText(this, "Failed to Download", Toast.LENGTH_SHORT).show()
             }
+    }
+
+    override fun attachBaseContext(newBase: Context) {
+        val userPreference = UserPreference.getInstance(newBase.dataStore)
+        val language = runBlocking { userPreference.getLanguage().first() }
+        val context = LocaleHelper.setLocale(newBase, language)
+        super.attachBaseContext(context)
     }
 }
