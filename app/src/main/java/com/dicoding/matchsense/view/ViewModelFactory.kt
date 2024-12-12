@@ -3,10 +3,12 @@ package com.dicoding.matchsense.view
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.dicoding.matchsense.data.repository.CompareRepository
 import com.dicoding.matchsense.data.repository.SynonymRepository
 import com.dicoding.matchsense.data.repository.UserRepository
 import com.dicoding.matchsense.data.repository.GeminiRepository
 import com.dicoding.matchsense.di.Injection
+import com.dicoding.matchsense.view.compare.CompareViewModel
 import com.dicoding.matchsense.view.login.LoginViewModel
 import com.dicoding.matchsense.view.main.MainViewModel
 import com.dicoding.matchsense.view.profile.ProfileViewModel
@@ -18,7 +20,8 @@ import com.dicoding.matchsense.view.synonym.meaning.SynonymMeaningViewModel
 class ViewModelFactory(
     private val repository: UserRepository,
     private val synonymRepository: SynonymRepository,
-    private val geminiRepository: GeminiRepository
+    private val geminiRepository: GeminiRepository,
+    private val compareRepository: CompareRepository
 ) : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
@@ -53,6 +56,10 @@ class ViewModelFactory(
                 SettingsViewModel(repository.getUserPreference()) as T
             }
 
+            modelClass.isAssignableFrom(CompareViewModel::class.java) -> {
+                CompareViewModel(compareRepository) as T
+            }
+
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
     }
@@ -68,7 +75,8 @@ class ViewModelFactory(
                     INSTANCE = ViewModelFactory(
                         Injection.provideRepository(context),
                         Injection.synonymRepository(),
-                        Injection.geminiRepository()
+                        Injection.geminiRepository(),
+                        Injection.compareRepository()
                     )
                 }
             }

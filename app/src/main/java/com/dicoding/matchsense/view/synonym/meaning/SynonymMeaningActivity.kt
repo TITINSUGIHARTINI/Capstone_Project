@@ -1,5 +1,6 @@
 package com.dicoding.matchsense.view.synonym.meaning
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -10,9 +11,14 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.dicoding.matchsense.R
 import com.dicoding.matchsense.data.Result
+import com.dicoding.matchsense.data.pref.UserPreference
+import com.dicoding.matchsense.data.pref.dataStore
 import com.dicoding.matchsense.databinding.ActivitySynonymMeaningBinding
+import com.dicoding.matchsense.helper.LocaleHelper
 
 import com.dicoding.matchsense.view.ViewModelFactory
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 
 class SynonymMeaningActivity : AppCompatActivity() {
 
@@ -23,6 +29,9 @@ class SynonymMeaningActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val userPreference = UserPreference.getInstance(this.dataStore)
+        val language = runBlocking { userPreference.getLanguage().first() }
+        LocaleHelper.setLocale(this, language)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivitySynonymMeaningBinding.inflate(layoutInflater)
@@ -73,5 +82,12 @@ class SynonymMeaningActivity : AppCompatActivity() {
 
     companion object {
         const val SYNONYM_MEANING = "SYNONYM_MEANING"
+    }
+
+    override fun attachBaseContext(newBase: Context) {
+        val userPreference = UserPreference.getInstance(newBase.dataStore)
+        val language = runBlocking { userPreference.getLanguage().first() }
+        val context = LocaleHelper.setLocale(newBase, language)
+        super.attachBaseContext(context)
     }
 }

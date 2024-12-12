@@ -94,7 +94,7 @@ class SettingsActivity : AppCompatActivity() {
         val workManager = WorkManager.getInstance(this)
 
         val reminderRequest = PeriodicWorkRequestBuilder<ReminderWorker>(1, TimeUnit.DAYS)
-            .setInitialDelay(1, TimeUnit.MINUTES) // Atur delay sesuai kebutuhan
+            .setInitialDelay(1, TimeUnit.MINUTES)
             .addTag("REMINDER")
             .build()
 

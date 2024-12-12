@@ -4,7 +4,9 @@ import android.content.Context
 import com.dicoding.matchsense.data.pref.UserPreference
 import com.dicoding.matchsense.data.pref.dataStore
 import com.dicoding.matchsense.data.remote.retrofit.config.ApiConfig
+import com.dicoding.matchsense.data.remote.retrofit.config.ApiConfigCompare
 import com.dicoding.matchsense.data.remote.retrofit.config.ApiConfigSynonym
+import com.dicoding.matchsense.data.repository.CompareRepository
 import com.dicoding.matchsense.data.repository.SynonymRepository
 import com.dicoding.matchsense.data.repository.UserRepository
 import com.dicoding.matchsense.data.repository.GeminiRepository
@@ -23,5 +25,10 @@ object Injection {
 
     fun geminiRepository(): GeminiRepository {
         return GeminiRepository.getInstance()
+    }
+
+    fun compareRepository(): CompareRepository {
+        val apiService = ApiConfigCompare.getApiService()
+        return CompareRepository.getInstance(apiService)
     }
 }

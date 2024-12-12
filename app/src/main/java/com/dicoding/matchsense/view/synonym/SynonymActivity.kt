@@ -1,5 +1,6 @@
 package com.dicoding.matchsense.view.synonym
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -13,6 +14,11 @@ import com.dicoding.matchsense.R
 import com.dicoding.matchsense.databinding.ActivitySynonymBinding
 import com.dicoding.matchsense.view.ViewModelFactory
 import com.dicoding.matchsense.data.Result
+import com.dicoding.matchsense.data.pref.UserPreference
+import com.dicoding.matchsense.data.pref.dataStore
+import com.dicoding.matchsense.helper.LocaleHelper
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 
 class SynonymActivity : AppCompatActivity() {
 
@@ -24,6 +30,9 @@ class SynonymActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val userPreference = UserPreference.getInstance(this.dataStore)
+        val language = runBlocking { userPreference.getLanguage().first() }
+        LocaleHelper.setLocale(this, language)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivitySynonymBinding.inflate(layoutInflater)
@@ -83,5 +92,12 @@ class SynonymActivity : AppCompatActivity() {
 
             }
         }
+    }
+
+    override fun attachBaseContext(newBase: Context) {
+        val userPreference = UserPreference.getInstance(newBase.dataStore)
+        val language = runBlocking { userPreference.getLanguage().first() }
+        val context = LocaleHelper.setLocale(newBase, language)
+        super.attachBaseContext(context)
     }
 }

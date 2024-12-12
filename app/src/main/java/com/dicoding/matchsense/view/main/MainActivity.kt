@@ -28,6 +28,7 @@ import com.dicoding.matchsense.view.profile.ProfileActivity
 import com.dicoding.matchsense.view.welcome.WelcomeActivity
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
+import com.dicoding.matchsense.helper.LocaleHelper
 
 class MainActivity : AppCompatActivity() {
 

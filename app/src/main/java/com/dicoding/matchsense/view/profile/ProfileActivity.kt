@@ -67,7 +67,7 @@ class ProfileActivity : AppCompatActivity() {
     private fun exitToWelcome() {
         val userPreference = UserPreference.getInstance(this.dataStore)
         val language = runBlocking { userPreference.getLanguage().first() }
-        LocaleHelper.setLocale(this, language) // Atur ulang bahasa
+        LocaleHelper.setLocale(this, language)
 
 
         val intent = Intent(this, WelcomeActivity::class.java)

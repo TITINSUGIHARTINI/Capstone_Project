@@ -18,8 +18,6 @@
     <string name="compare_description">Mbandhingake loro teks kanggo mriksa padha utawa ora</string>
     <string name="translate">Terjemahna</string>
     <string name="translate_description">Terjemahna saka Inggris menyang Indonesia utawa sebaliknya</string>
-    <string name="convert">Konversi dadi PDF</string>
-    <string name="convert_description">Ngonversi teks utawa gambar dadi file PDF</string>
     <string name="settings">Setelan</string>
     <string name="settings_description">Iki tombol setelan, klik kanggo mbukak menu setelan</string>
     <string name="feature">Fitur Utama</string>
@@ -37,6 +35,31 @@
     <string name="notification_icon">Aktifake Ikon Notifikasi</string>
     <string name="choose_language">Pilih Basa</string>
     <string name="notification_title">MatchSense</string>
-    <string name="notification_message">Iki tes yo</string>
+    <string name="notification_message">"Isih ana teks sing durung dicek? Aja nganti kelewatan analisis cepet saka awake dhewe!"</string>
     <string name="notification_subtext">Pengingat</string>
+    <string name="synonym">Panggonan Nggolek Tetembungan</string>
+    <string name="synonym_description">"Butuh bantuan nggolek tetembungan tembung? Iki panggonane!</string>
+    <string name="search">Goleki</string>
+    <string name="back_button">Tombol Bali</string>
+    <string name="result_not_found">Asil Ora Ketemu</string>
+    <string name="no_word_toast">Mangga lebokno tembung</string>
+    <string name="word_meaning">Tegese Tembung</string>
+    <string name="what_is_the_meaning_of_the_word">Tegese Tembung</string>
+    <string name="powered_by">Dipondukung dening</string>
+    <string name="enter_text">Lebokno Teks</string>
+    <string name="indonesian">Basa Indonesia</string>
+    <string name="english">Basa Inggris</string>
+    <string name="no_text_toast">Mangga lebokno teks</string>
+    <string name="switch_translate">Ganti Terjemahan</string>
+    <string name="to">marang</string>
+    <string name="first_text">Teks Kaping Sepisan</string>
+    <string name="start_something_from_here">Mulai soko kene...</string>
+    <string name="second_text">Teks Kaping Pindho</string>
+    <string name="text_similiarity_result">Asil Keserupaan Teks</string>
+    <string name="similarity_result">Keserupaan: %.2f%%</string>
+    <string name="error_no_result">Ana kesalahan, coba maneh</string>
+    <string name="loading">Nggoleki...</string>
+    <string name="error_empty_fields">Kabeh kolom kudu diisi</string>
+
+
 </resources>

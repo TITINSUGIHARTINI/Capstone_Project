@@ -3,20 +3,17 @@ package com.dicoding.matchsense.data.repository
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
-import com.dicoding.matchsense.data.model.LoginRequest
-import com.dicoding.matchsense.data.model.RegisterRequest
+import com.dicoding.matchsense.data.Result
+import com.dicoding.matchsense.data.model.authentication.LoginRequest
+import com.dicoding.matchsense.data.model.authentication.RegisterRequest
+import com.dicoding.matchsense.data.pref.UserModel
 import com.dicoding.matchsense.data.pref.UserPreference
-import com.dicoding.matchsense.data.remote.retrofit.service.ApiService
 import com.dicoding.matchsense.data.remote.response.LoginMSResponse
 import com.dicoding.matchsense.data.remote.response.RegisterMSResponse
 import com.dicoding.matchsense.data.remote.retrofit.service.ApiService
-import com.dicoding.matchsense.data.remote.response.ErrorResponse
-import com.dicoding.matchsense.data.remote.response.LoginResponse
 import com.google.gson.Gson
 import kotlinx.coroutines.flow.Flow
 import retrofit2.HttpException
-import com.dicoding.matchsense.data.Result
-import com.dicoding.matchsense.data.pref.UserModel
 
 class UserRepository private constructor(
     private val userPreference: UserPreference,

@@ -19,6 +19,7 @@ android {
 //        buildConfigField("String", "BASE_URL", "\"https://story-api.dicoding.dev/v1/\"")
         buildConfigField("String", "BASE_URL", "\"https://login-regis-900808293702.asia-southeast2.run.app/\"")
         buildConfigField("String", "SYNONYM_BASE_URL", "\"https://api.api-ninjas.com/v1/\"")
+        buildConfigField("String", "COMPARE_BASE_URL", "\"https://bangkit-capstone-matchsense.et.r.appspot.com/predict/\"")
     }
 
     buildTypes {

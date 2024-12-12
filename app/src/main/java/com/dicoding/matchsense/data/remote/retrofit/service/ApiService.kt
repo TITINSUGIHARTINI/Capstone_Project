@@ -1,7 +1,7 @@
 package com.dicoding.matchsense.data.remote.retrofit.service
 
-import com.dicoding.matchsense.data.model.LoginRequest
-import com.dicoding.matchsense.data.model.RegisterRequest
+import com.dicoding.matchsense.data.model.authentication.LoginRequest
+import com.dicoding.matchsense.data.model.authentication.RegisterRequest
 import com.dicoding.matchsense.data.remote.response.LoginMSResponse
 import com.dicoding.matchsense.data.remote.response.RegisterMSResponse
 import retrofit2.http.Body

@@ -1,4 +1,4 @@
-package com.dicoding.matchsense.data.model
+package com.dicoding.matchsense.data.model.authentication
 
 data class LoginRequest (
     val email: String,
