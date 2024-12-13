@@ -46,13 +46,13 @@ class TranslateActivity : AppCompatActivity() {
             finish()
         }
         binding.translateButton.setOnClickListener {
-            var text = binding.translateEditText.text.toString()
+            val text = binding.translateEditText.text.toString()
             if(text.isEmpty() || text.isBlank()) {
                 Toast.makeText(this, getString(R.string.no_text_toast), Toast.LENGTH_SHORT).show()
                 binding.TranslatedTextTv.visibility = View.GONE
                 return@setOnClickListener
             }
-
+            binding.progressBar.visibility = View.VISIBLE
             translate(text)
         }
         binding.switchTranslateTarget.setOnClickListener {
@@ -93,7 +93,9 @@ class TranslateActivity : AppCompatActivity() {
                                 val finalText = translate.joinToString("\n")
                                 binding.TranslatedTextTv.text = finalText
                                 binding.TranslatedTextTv.visibility = View.VISIBLE
+
                                 translator.close()
+                                binding.progressBar.visibility = View.GONE
                             }
                         }
                         .addOnFailureListener { exception ->
@@ -102,11 +104,13 @@ class TranslateActivity : AppCompatActivity() {
                             print(exception.stackTrace)
 
                             translator.close()
+                            binding.progressBar.visibility = View.GONE
                         }
                 }
             }
             .addOnFailureListener { exception ->
                 Toast.makeText(this, "Failed to Download", Toast.LENGTH_SHORT).show()
+                binding.progressBar.visibility = View.GONE
             }
     }
 
